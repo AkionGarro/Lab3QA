@@ -1,6 +1,14 @@
 import { waitForDebugger } from 'inspector';
 
 require('cypress-xpath');
+
+// Caso de prueba 1: Clase de Equivalencia para Documentos del Acueducto
+// Objetivo: Verificar si se encuentran los documentos de solicitud para diponibilidad de agua
+// Datos de prueba:
+// Buscar: "departamento" = Acueducto
+// Resultado esperado:
+// Formulario solicitud para diponibilidad de agua se encuentre en la lista
+
 describe('Documentos Acueducto', function () {
   beforeEach(function () {
     cy.visit('https://www.munisc.go.cr/Paginas/Visitantes/Documentos.aspx');
@@ -13,6 +21,7 @@ describe('Documentos Acueducto', function () {
     )
       .click()
       .then(() => {
+        //seleccionar acueducto
         cy.xpath(
           '/html/body/form/div[3]/div[2]/div[1]/div[3]/div/div[2]/fieldset/div[2]/select'
         )
@@ -32,6 +41,12 @@ describe('Documentos Acueducto', function () {
   });
 });
 
+// Caso de prueba 2: Clase de Equivalencia para Documentos del Administración
+// Objetivo: Que no se deben de mostrar documentos relacionados
+// Datos de prueba:
+// Buscar: "departamento" = Administración
+// Resultado esperado:
+// No existen documentos relacionados.
 describe('Documentos Administración', function () {
   beforeEach(function () {
     cy.visit('https://www.munisc.go.cr/Paginas/Visitantes/Documentos.aspx');
@@ -44,6 +59,7 @@ describe('Documentos Administración', function () {
     )
       .click()
       .then(() => {
+        //seleccionar Administración
         cy.xpath(
           '/html/body/form/div[3]/div[2]/div[1]/div[3]/div/div[2]/fieldset/div[2]/select'
         )
@@ -60,6 +76,12 @@ describe('Documentos Administración', function () {
   });
 });
 
+// Caso de prueba 3: Clase de Equivalencia para Alcaldía
+// Objetivo: Verificar si se encuentran los documentos de Código Municipal
+// Datos de prueba:
+// Buscar: "departamento" = Alcaldía
+// Resultado esperado:
+// Formulario de Código Municipal
 describe('Documentos Alcaldía', function () {
   beforeEach(function () {
     cy.visit('https://www.munisc.go.cr/Paginas/Visitantes/Documentos.aspx');
@@ -72,6 +94,7 @@ describe('Documentos Alcaldía', function () {
     )
       .click()
       .then(() => {
+        //seleccionar Alcaldía
         cy.xpath(
           '/html/body/form/div[3]/div[2]/div[1]/div[3]/div/div[2]/fieldset/div[2]/select'
         )
@@ -88,6 +111,12 @@ describe('Documentos Alcaldía', function () {
   });
 });
 
+// Caso de prueba 4: Clase de Equivalencia para Documentos de Administración Tributaria
+// Objetivo: Verificar si se encuentran los documentos de Patente Comercial
+// Datos de prueba:
+// Buscar: "departamento" = Administración Tributaria
+// Resultado esperado:
+// Formulario de Patente Comercial
 describe('Documentos Administración Tributaria', function () {
   beforeEach(function () {
     cy.visit('https://www.munisc.go.cr/Paginas/Visitantes/Documentos.aspx');
@@ -100,6 +129,7 @@ describe('Documentos Administración Tributaria', function () {
     )
       .click()
       .then(() => {
+        //seleccionar Administración Tributaria
         cy.xpath(
           '/html/body/form/div[3]/div[2]/div[1]/div[3]/div/div[2]/fieldset/div[2]/select'
         )
